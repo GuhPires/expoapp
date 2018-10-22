@@ -19,18 +19,19 @@ export default class App extends React.Component {
     }
     this.setState({
       [from]: Date.now()
-    });
+    }, () => this.calculateTime());
   }
 
-  calculateTime(e){
-    e.preventDefault();
+  calculateTime(){
     let diff = (this.state.leavingTime - this.state.arrivingTime);
-    let hours = parseInt(diff / 3600000);
-    console.log('Hours: ', hours);
-    let minutes = (diff - hours) / 60000;
-    console.log('Minutes: ', minutes);
-    let seconds = (diff - minutes) / 60;
+    console.log('Diff: ', diff);
+    let seconds = diff / 1000;
     console.log('Seconds: ', seconds);
+    let minutes = diff / 60000;
+    console.log('Minutes: ', minutes);
+    let hours = diff / 3600000;
+    console.log('Hours: ', hours);
+    return ;
   }
 
   render() {
