@@ -25,12 +25,14 @@ export default class App extends React.Component {
   calculateTime(){
     let diff = (this.state.leavingTime - this.state.arrivingTime);
     console.log('Diff: ', diff);
-    let seconds = diff / 1000;
-    console.log('Seconds: ', seconds);
-    let minutes = diff / 60000;
-    console.log('Minutes: ', minutes);
     let hours = diff / 3600000;
-    console.log('Hours: ', hours);
+    diff = diff % 3600000;
+    console.log('Hours: ', hours, ' Diff: ', diff);
+    let minutes = diff / 60000;
+    diff = diff % 60000;
+    console.log('Minutes: ', minutes, ' Diff: ', diff);
+    let seconds = diff / 1000;
+    console.log('Seconds: ', seconds, ' Diff: ', diff);
     return ;
   }
 
